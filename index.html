@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>brightworld editz — Brand Designer & Strategist</title>
+<meta name="description" content="brightworld editz — Brand Designer and Strategist. Graphics and Social Media Designer. Scaling your brand away from competition through outstanding visuals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0a0a0a;
+    --bg-raised: #151515;
+    --ink: #f5f4f0;
+    --ink-dim: #a3a19c;
+    --yellow: #f5c518;
+    --purple: #9b5de5;
+    --blue: #3ea6ff;
+    --line: #262620;
+    --max: 1080px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Poppins', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{ background:var(--yellow); color:var(--bg); }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 24px; }
+
+  h1,h2,h3{ font-weight:800; letter-spacing:-0.02em; }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(10,10,10,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:72px;
+  }
+  .logo{ font-weight:800; font-size:1.15rem; }
+  .logo .b1{ color:var(--yellow); }
+  .logo .b2{ color:var(--purple); }
+  .nav-links{ display:flex; align-items:center; gap:30px; list-style:none; font-size:0.85rem; font-weight:600; }
+  .nav-links a{ text-decoration:none; color:var(--ink-dim); transition:color .2s ease; }
+  .nav-links a:hover, .nav-links a:focus-visible{ color:var(--ink); }
+  .nav-cta{
+    background:var(--yellow); color:var(--bg) !important; padding:10px 20px;
+    border-radius:100px; font-weight:700 !important;
+  }
+  .nav-cta:hover{ background:var(--purple) !important; color:var(--bg) !important; }
+
+  /* ---------- Marquee ---------- */
+  .marquee{
+    background:var(--yellow); color:var(--bg);
+    overflow:hidden; white-space:nowrap;
+    border-bottom:1px solid var(--line);
+    transform:rotate(-1deg);
+    margin:0 -2px;
+  }
+  .marquee-track{
+    display:inline-flex; gap:40px;
+    animation:scroll 22s linear infinite;
+    padding:10px 0;
+    font-weight:700; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .marquee-track span{ display:flex; align-items:center; gap:40px; }
+  .marquee-track .dot{ font-size:0.6rem; }
+  @keyframes scroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{ animation:none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:100px 0 80px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; top:-120px; right:-120px;
+    width:340px; height:340px; border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, var(--purple), transparent 70%);
+    opacity:0.35; filter:blur(10px);
+    pointer-events:none;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; bottom:-160px; left:-100px;
+    width:320px; height:320px; border-radius:50%;
+    background:radial-gradient(circle at 60% 40%, var(--blue), transparent 70%);
+    opacity:0.3; filter:blur(10px);
+    pointer-events:none;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    color:var(--bg); background:var(--purple);
+    font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase;
+    padding:6px 14px; border-radius:100px; margin-bottom:28px;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 8vw, 5.6rem);
+    line-height:0.98;
+    position:relative; z-index:1;
+  }
+  .hero h1 .line2{ color:var(--yellow); -webkit-text-stroke:0; }
+  .hero h1 .line3{
+    -webkit-text-stroke: 1.5px var(--ink);
+    color:transparent;
+  }
+  .roles{
+    margin-top:30px; display:flex; flex-wrap:wrap; gap:10px 14px;
+    font-size:0.95rem; font-weight:600; color:var(--ink-dim);
+    max-width:60ch;
+  }
+  .roles .sep{ color:var(--yellow); }
+  .hero p.lede{
+    margin-top:22px; max-width:56ch; color:var(--ink-dim); font-size:1.05rem; font-weight:400;
+  }
+  .hero p.lede strong{ color:var(--ink); font-weight:700; }
+  .cta-row{ margin-top:40px; display:flex; gap:16px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 26px; font-family:'Poppins', sans-serif;
+    font-size:0.9rem; font-weight:700; text-decoration:none;
+    border-radius:100px;
+    transition:transform .15s ease, background .2s ease, color .2s ease;
+  }
+  .btn-primary{ background:var(--yellow); color:var(--bg); }
+  .btn-primary:hover{ transform:translateY(-2px) rotate(-1deg); background:var(--purple); }
+  .btn-ghost{ border:2px solid var(--line); color:var(--ink); }
+  .btn-ghost:hover{ border-color:var(--blue); color:var(--blue); }
+
+  /* ---------- Sections generic ---------- */
+  section{ padding:90px 0; border-bottom:1px solid var(--line); }
+  .section-head{ margin-bottom:48px; display:flex; align-items:baseline; gap:16px; }
+  .section-tag{
+    background:var(--blue); color:var(--bg); font-size:0.7rem; font-weight:800;
+    padding:5px 12px; border-radius:100px; text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .section-head h2{ font-size:clamp(1.8rem,4vw,2.6rem); }
+
+  /* ---------- About ---------- */
+  .about-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:start; }
+  .about-grid p{ color:var(--ink-dim); margin-bottom:16px; max-width:56ch; font-size:1.02rem; }
+  .pill-list{ display:flex; flex-wrap:wrap; gap:10px; }
+  .pill{
+    font-size:0.8rem; font-weight:600; padding:8px 16px; border-radius:100px;
+    border:2px solid var(--line); color:var(--ink);
+  }
+  .pill:nth-child(3n+1){ border-color:var(--yellow); }
+  .pill:nth-child(3n+2){ border-color:var(--purple); }
+  .pill:nth-child(3n+3){ border-color:var(--blue); }
+
+  /* ---------- Work ---------- */
+  .work-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:24px; }
+  .work-card{
+    background:var(--bg-raised); border:1px solid var(--line); border-radius:16px;
+    padding:32px; position:relative; overflow:hidden;
+    transition:transform .2s ease, border-color .2s ease;
+  }
+  .work-card:hover{ transform:translateY(-4px); }
+  .work-card:nth-child(1):hover{ border-color:var(--yellow); }
+  .work-card:nth-child(2):hover{ border-color:var(--purple); }
+  .work-card:nth-child(3):hover{ border-color:var(--blue); }
+  .work-card:nth-child(4):hover{ border-color:var(--yellow); }
+  .work-card .num{
+    font-size:0.75rem; font-weight:800; color:var(--ink-dim); margin-bottom:20px; display:block;
+  }
+  .work-card h3{ font-size:1.3rem; margin-bottom:10px; }
+  .work-card p{ color:var(--ink-dim); font-size:0.92rem; max-width:40ch; }
+  .work-card .tags{ margin-top:18px; display:flex; gap:8px; flex-wrap:wrap; }
+  .work-card .tag{
+    font-size:0.7rem; font-weight:600; padding:4px 10px; border-radius:100px;
+    background:rgba(255,255,255,0.06); color:var(--ink-dim);
+  }
+
+  /* ---------- Contact ---------- */
+  .contact h2{ font-size:clamp(2.2rem,6vw,3.6rem); max-width:18ch; }
+  .contact-sub{ color:var(--ink-dim); max-width:50ch; margin-top:18px; font-size:1rem; }
+  .contact-links{ margin-top:38px; display:flex; gap:14px; flex-wrap:wrap; }
+  .contact-links a{
+    text-decoration:none; color:var(--ink); font-size:0.9rem; font-weight:600;
+    border:2px solid var(--line); padding:12px 22px; border-radius:100px;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .contact-links a:hover{ border-color:var(--yellow); color:var(--yellow); }
+
+  footer{ padding:32px 0; text-align:center; color:var(--ink-dim); font-size:0.75rem; }
+
+  @media (max-width:760px){
+    .nav-links li:not(.nav-cta-item){ display:none; }
+    .about-grid{ grid-template-columns:1fr; }
+    .work-grid{ grid-template-columns:1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo"><span class="b1">bright</span><span class="b2">world</span> editz</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li class="nav-cta-item"><a href="#contact" class="nav-cta">Let's talk</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>BRAND DESIGN <span class="dot">●</span> SOCIAL MEDIA GRAPHICS <span class="dot">●</span> VISUAL STRATEGY <span class="dot">●</span> SCALING BRANDS <span class="dot">●</span></span>
+    <span>BRAND DESIGN <span class="dot">●</span> SOCIAL MEDIA GRAPHICS <span class="dot">●</span> VISUAL STRATEGY <span class="dot">●</span> SCALING BRANDS <span class="dot">●</span></span>
+  </div>
+</div>
+
+<section class="hero wrap">
+  <div class="eyebrow">Open for brand projects</div>
+  <h1>brightworld<br><span class="line2">editz</span></h1>
+  <div class="roles">
+    <span>Brand Designer & Strategist</span>
+    <span class="sep">||</span>
+    <span>Graphics & Social Media Designer</span>
+    <span class="sep">||</span>
+    <span>Creativity Enthusiast</span>
+  </div>
+  <p class="lede">I scale your brand <strong>away from competition</strong> through outstanding visuals — from social media graphics to full brand identity systems.</p>
+  <div class="cta-row">
+    <a href="#work" class="btn btn-primary">See my work</a>
+    <a href="#contact" class="btn btn-ghost">Start a project</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">About</span>
+      <h2>The person behind the pixels</h2>
+    </div>
+    <div class="about-grid">
+      <p>
+        Replace this paragraph with a couple of sentences about who you are, how you got into
+        brand design, and what makes your visual style different. Keep it in your own voice —
+        confident and personal, like you're introducing yourself to a client directly.
+      </p>
+      <div class="pill-list">
+        <span class="pill">Brand Identity</span>
+        <span class="pill">Social Media Design</span>
+        <span class="pill">Adobe Photoshop</span>
+        <span class="pill">Adobe Illustrator</span>
+        <span class="pill">Canva Pro</span>
+        <span class="pill">Content Strategy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">Work</span>
+      <h2>Selected projects</h2>
+    </div>
+    <div class="work-grid">
+      <div class="work-card">
+        <span class="num">01</span>
+        <h3>Project One</h3>
+        <p>One or two sentences on this project — the brand, the brief, and the result.</p>
+        <div class="tags"><span class="tag">Brand Identity</span><span class="tag">Social Kit</span></div>
+      </div>
+      <div class="work-card">
+        <span class="num">02</span>
+        <h3>Project Two</h3>
+        <p>One or two sentences on this project — the brand, the brief, and the result.</p>
+        <div class="tags"><span class="tag">Logo Design</span><span class="tag">Packaging</span></div>
+      </div>
+      <div class="work-card">
+        <span class="num">03</span>
+        <h3>Project Three</h3>
+        <p>One or two sentences on this project — the brand, the brief, and the result.</p>
+        <div class="tags"><span class="tag">Instagram Templates</span></div>
+      </div>
+      <div class="work-card">
+        <span class="num">04</span>
+        <h3>Project Four</h3>
+        <p>One or two sentences on this project — the brand, the brief, and the result.</p>
+        <div class="tags"><span class="tag">Rebrand</span><span class="tag">Style Guide</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">Contact</span>
+    </div>
+    <h2>Let's scale your brand together.</h2>
+    <p class="contact-sub">Have a project in mind? Reach out and let's talk about how to make your brand stand out.</p>
+    <div class="contact-links">
+      <a href="mailto:you@example.com">Email me</a>
+      <a href="https://instagram.com/yourusername" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/yourwhatsappnumber" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> brightworld editz. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
