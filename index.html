@@ -34,6 +34,7 @@
   img{ display:block; width:100%; height:auto; }
   .wrap{ max-width:var(--max); margin:0 auto; }
 
+  /* ---------- Sticky mini nav ---------- */
   .mini-nav{
     position:fixed; top:20px; left:50%; transform:translateX(-50%);
     z-index:100; display:flex; gap:6px; align-items:center;
@@ -54,9 +55,11 @@
     .mini-nav{ max-width:92vw; overflow-x:auto; justify-content:flex-start; }
   }
 
+  /* ---------- Placed design sections (images, untouched) ---------- */
   .placed{ display:block; width:100%; line-height:0; position:relative; }
   .placed img{ width:100%; display:block; }
 
+  /* ---------- Placeholder sections (to be replaced as designs arrive) ---------- */
   .placeholder{
     padding:90px 24px; border-top:1px dashed rgba(212,205,255,0.25);
     border-bottom:1px dashed rgba(212,205,255,0.25);
@@ -70,8 +73,11 @@
   .placeholder h2{ font-size:clamp(1.6rem,4vw,2.4rem); font-weight:800; margin-bottom:10px; }
   .placeholder p{ color:var(--ash); max-width:50ch; margin:0 auto; font-size:0.95rem; }
 
+  /* ---------- Socials + Contact (merged) ---------- */
   .connect-section{ position:relative; background:var(--black); }
-  .socials-hotspots{ position:relative; width:100%; }
+  .socials-hotspots{
+    position:relative; width:100%;
+  }
   .hotspot{
     position:absolute; top:49.3%; height:28.6%;
     border-radius:22%;
@@ -88,7 +94,9 @@
   .hotspot.i4{ left:58.70%; width:9.48%; }
   .hotspot.i5{ left:72.09%; width:9.48%; }
 
-  .contact-form-area{ padding:70px 24px 100px; background:var(--black); }
+  .contact-form-area{
+    padding:70px 24px 100px; background:var(--black);
+  }
   .contact-form-area .inner{ max-width:640px; margin:0 auto; }
   .contact-form-area .eyebrow{
     color:var(--yellow); font-size:0.75rem; font-weight:700; letter-spacing:0.08em;
@@ -134,10 +142,14 @@
   .thank-you p{ color:var(--ash); font-size:1rem; line-height:1.7; max-width:52ch; margin:0 auto; }
   .thank-you .sig{ display:block; margin-top:18px; color:var(--purple-light); font-weight:700; }
 
-  .form-error{ display:none; color:var(--yellow); font-size:0.85rem; margin-top:4px; }
+  .form-error{
+    display:none; color:var(--yellow); font-size:0.85rem; margin-top:4px;
+  }
   .form-error.show{ display:block; }
 
-  footer.note{ text-align:center; padding:26px; color:rgba(230,232,236,0.4); font-size:0.72rem; }
+  footer.note{
+    text-align:center; padding:26px; color:rgba(230,232,236,0.4); font-size:0.72rem;
+  }
 </style>
 </head>
 <body>
@@ -150,39 +162,46 @@
   <a href="#connect" class="connect">Connect With Me</a>
 </nav>
 
+<!-- 1. WELCOME (placed, fixed, no nav entry) -->
 <section class="placed" id="welcome">
-  <img src="images/WELCOME.png" alt="Welcome to my portfolio">
+  <img src="IMAGES/WELCOME.png" alt="Welcome to my portfolio">
 </section>
 
+<!-- 2. HOME (placed, fixed) -->
 <section class="placed" id="home">
-  <img src="images/HOME.png" alt="brightworld editz — Taiwo Faith, Brand Designer and Strategist">
+  <img src="IMAGES/HOME.png" alt="brightworld editz — Taiwo Faith, Brand Designer and Strategist">
 </section>
 
+<!-- 3. ABOUT ME + TOOLS USED (placed, fixed) -->
 <section class="placed" id="about">
-  <img src="images/ABOUT_ME.png" alt="About me — Timothy Taiwo Faith, brand identity, strategy and software skills">
+  <img src="IMAGES/ABOUT_ME.png" alt="About me — Timothy Taiwo Faith, brand identity, strategy and software skills">
 </section>
 
+<!-- 4. DESIGN APPROACH (placeholder — awaiting design) -->
 <section class="placeholder" id="approach">
   <span class="tag">Design Approach</span>
   <h2>Section pending</h2>
   <p>This section will hold your short design-approach write-up once that piece is ready.</p>
 </section>
 
+<!-- 5. PROJECTS (placeholder — awaiting designs, split into two categories) -->
 <section class="placeholder" id="projects">
   <span class="tag">Projects</span>
   <h2>Brand Identity &amp; Social Media Projects</h2>
   <p>Two subsections will live here — Brand Identity Projects and Social Media Design Projects — each filled with the brand layouts you send over.</p>
 </section>
 
+<!-- 6. REVIEWS (placeholder — awaiting screenshots) -->
 <section class="placeholder" id="reviews">
   <span class="tag">Reviews</span>
   <h2>Client Reviews</h2>
   <p>Your uploaded client review screenshots will be displayed here as a gallery.</p>
 </section>
 
+<!-- 7. SOCIALS + CONTACT ME (merged) -->
 <section class="connect-section" id="connect">
   <div class="socials-hotspots">
-    <img src="images/SOCIALS.png" alt="Connect with me — WhatsApp, Instagram, LinkedIn, Behance, X">
+    <img src="IMAGES/SOCIALS.png" alt="Connect with me — WhatsApp, Instagram, LinkedIn, Behance, X">
     <a class="hotspot i1" href="https://wa.me/2348134909708" target="_blank" rel="noopener" aria-label="Message on WhatsApp"></a>
     <a class="hotspot i2" href="https://www.instagram.com/brightworldeditz" target="_blank" rel="noopener" aria-label="Instagram"></a>
     <a class="hotspot i3" href="https://www.linkedin.com/in/timothy-taiwo-faith-950a9b39b" target="_blank" rel="noopener" aria-label="LinkedIn"></a>
@@ -197,6 +216,7 @@
       <p>Fill this out with as much detail as you can — the more I know upfront, the faster I can get back to you with next steps.</p>
 
       <form id="inquiry-form">
+        <!-- Web3Forms: replace YOUR_ACCESS_KEY_HERE with the key generated for taiwofaith09@gmail.com -->
         <input type="hidden" name="access_key" value="2268d071-3b19-4d81-bf60-15a4e082214c">
         <input type="hidden" name="subject" value="New project inquiry — brightworld editz">
         <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
@@ -276,8 +296,9 @@
   </div>
 </section>
 
+<!-- 8. LAST PAGE (placed, fixed, always last) -->
 <section class="placed" id="last">
-  <img src="images/LAST_PAGE.png" alt="Let's work together — thank you for viewing">
+  <img src="IMAGES/LAST_PAGE.png" alt="Let's work together — thank you for viewing">
 </section>
 
 <footer class="note">© <span id="year"></span> brightworld editz. All rights reserved.</footer>
@@ -319,4 +340,4 @@
 </script>
 
 </body>
-</html>
+  </html>
