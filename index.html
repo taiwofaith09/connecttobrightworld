@@ -109,6 +109,7 @@
   .review-tile{
     flex:0 0 auto; width:340px; border-radius:16px; overflow:hidden; line-height:0;
   }
+  /* placeholder tile — replaced by real review screenshots */
   .review-tile.empty{
     height:220px; display:flex; align-items:center; justify-content:center;
     border:1.5px dashed rgba(212,205,255,0.35); color:var(--ash);
@@ -213,24 +214,24 @@
 
 <!-- 1. WELCOME -->
 <section class="placed" id="welcome">
-  <img src="IMAGES/WELCOME_1.png" alt="Welcome to my portfolio">
+  <img src="IMAGES/WELCOME_295358.png" alt="Welcome to my portfolio">
 </section>
 
 <!-- 2. HOME -->
 <section class="placed" id="home">
-  <img src="IMAGES/HOME_1.png" alt="brightworld editz — Taiwo Faith, Brand Designer and Strategist">
+  <img src="IMAGES/HOME_8e1a2b.png" alt="brightworld editz — Taiwo Faith, Brand Designer and Strategist">
 </section>
 
 <!-- 3. ABOUT ME + TOOLS -->
 <section class="placed" id="about">
-  <img src="IMAGES/ABOUT_ME_1.png" alt="About me — Timothy Taiwo Faith, brand identity, strategy and software skills">
+  <img src="IMAGES/ABOUT_ME_35f90e.png" alt="About me — Timothy Taiwo Faith, brand identity, strategy and software skills">
 </section>
 
-<!-- 4. DESIGN APPROACH -->
+<!-- 4. DESIGN APPROACH (swipe through 3 slides; tab pills on slide 1 are clickable) -->
 <section class="approach" id="approach">
   <div class="approach-track" id="approach-track">
     <div class="approach-slide">
-      <img src="IMAGES/DESIGN_APPROACH_1_-_3.png" alt="My approach — Understanding, Research and Concept">
+      <img src="IMAGES/DESIGN_APPROACH_1_-_3_1.png" alt="My approach — Understanding, Research and Concept">
       <button class="tab-hotspot t1" data-slide="0" aria-label="Understanding"></button>
       <button class="tab-hotspot t2" data-slide="0" aria-label="Research"></button>
       <button class="tab-hotspot t3" data-slide="0" aria-label="Concept"></button>
@@ -238,10 +239,10 @@
       <button class="tab-hotspot t5" data-slide="2" aria-label="Refine"></button>
     </div>
     <div class="approach-slide">
-      <img src="IMAGES/DESIGN_APPROACH_4.png" alt="Design — turning clarity into visibility">
+      <img src="IMAGES/DESIGN_APPROACH_4_1.png" alt="Design — turning clarity into visibility">
     </div>
     <div class="approach-slide">
-      <img src="IMAGES/DESIGN_APPROACH_5.png" alt="Refine — ending with less, revealing what's true">
+      <img src="IMAGES/DESIGN_APPROACH_5_1.png" alt="Refine — ending with less, revealing what's true">
     </div>
   </div>
   <div class="approach-dots" id="approach-dots">
@@ -251,7 +252,7 @@
   </div>
 </section>
 
-<!-- 5. PROJECTS (entry point) -->
+<!-- 5. PROJECTS (entry point — awaiting your design; leads to projects.html) -->
 <section class="placeholder" id="projects">
   <span class="tag">Projects</span>
   <h2>Brand Identity &amp; Social Media Design</h2>
@@ -259,19 +260,21 @@
   <a href="projects.html" class="pill-btn">View Projects</a>
 </section>
 
-<!-- 6. REVIEWS -->
+<!-- 6. REVIEWS (auto-scrolls left to right; empty tiles get replaced by your screenshots) -->
 <section class="reviews" id="reviews">
   <div class="head">
     <span class="tag">Reviews</span>
     <h2>What clients say</h2>
   </div>
   <div class="reviews-track">
+    <!-- Set 1 -->
     <div class="review-tile empty">Review screenshot 1</div>
     <div class="review-tile empty">Review screenshot 2</div>
     <div class="review-tile empty">Review screenshot 3</div>
     <div class="review-tile empty">Review screenshot 4</div>
     <div class="review-tile empty">Review screenshot 5</div>
     <div class="review-tile empty">Review screenshot 6</div>
+    <!-- Set 2 (exact duplicate of Set 1 — needed for the seamless loop) -->
     <div class="review-tile empty" aria-hidden="true">Review screenshot 1</div>
     <div class="review-tile empty" aria-hidden="true">Review screenshot 2</div>
     <div class="review-tile empty" aria-hidden="true">Review screenshot 3</div>
@@ -281,10 +284,10 @@
   </div>
 </section>
 
-<!-- 7. SOCIALS + CONTACT ME -->
+<!-- 7. SOCIALS + CONTACT ME (merged) -->
 <section class="connect-section" id="connect">
   <div class="socials-hotspots">
-    <img src="IMAGES/SOCIALS_1.png" alt="Connect with me — WhatsApp, Instagram, LinkedIn, Behance, X">
+    <img src="IMAGES/SOCIALS_3486e9.png" alt="Connect with me — WhatsApp, Instagram, LinkedIn, Behance, X">
     <a class="hotspot i1" href="https://wa.me/2348134909708" target="_blank" rel="noopener" aria-label="Message on WhatsApp"></a>
     <a class="hotspot i2" href="https://www.instagram.com/brightworldeditz" target="_blank" rel="noopener" aria-label="Instagram"></a>
     <a class="hotspot i3" href="https://www.linkedin.com/in/timothy-taiwo-faith-950a9b39b" target="_blank" rel="noopener" aria-label="LinkedIn"></a>
@@ -379,9 +382,9 @@
   </div>
 </section>
 
-<!-- 8. LAST PAGE -->
+<!-- 8. LAST PAGE (fixed, always last) -->
 <section class="placed" id="last">
-  <img src="IMAGES/LAST_PAGE_1.png" alt="Let's work together — thank you for viewing">
+  <img src="IMAGES/LAST_PAGE_ce40c2.png" alt="Let's work together — thank you for viewing">
 </section>
 
 <footer class="note">© <span id="year"></span> brightworld editz. All rights reserved.</footer>
