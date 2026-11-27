@@ -24,6 +24,7 @@
   a{ color:inherit; }
   img{ display:block; width:100%; height:auto; }
 
+  /* ---------- Floating nav ---------- */
   .mini-nav{
     position:fixed; top:20px; left:50%; transform:translateX(-50%);
     z-index:100; display:flex; gap:6px; align-items:center;
@@ -43,8 +44,10 @@
     .mini-nav{ max-width:92vw; overflow-x:auto; justify-content:flex-start; }
   }
 
+  /* ---------- Placed design sections ---------- */
   .placed{ display:block; width:100%; line-height:0; position:relative; }
 
+  /* ---------- Design Approach (swipe + tab hotspots) ---------- */
   .approach{ position:relative; background:var(--black); }
   .approach-track{
     display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
@@ -71,6 +74,7 @@
   }
   .approach-dots button.active{ background:var(--yellow); transform:scale(1.3); }
 
+  /* ---------- Entry-point / placeholder blocks ---------- */
   .placeholder{
     padding:90px 24px; border-top:1px dashed rgba(212,205,255,0.25);
     border-bottom:1px dashed rgba(212,205,255,0.25); text-align:center;
@@ -89,9 +93,366 @@
   }
   .pill-btn:hover{ transform:translateY(-2px); background:var(--purple-light); }
 
+  /* ---------- Reviews: auto-scrolling left to right ---------- */
   .reviews{ padding:80px 0; overflow:hidden; border-top:1px dashed rgba(212,205,255,0.25); }
   .reviews .head{ text-align:center; margin-bottom:36px; padding:0 24px; }
   .reviews .head .tag{
     display:inline-block; background:var(--purple); color:var(--white);
     font-size:0.7rem; font-weight:800; letter-spacing:0.06em; text-transform:uppercase;
-    padding:6px 16px; border-radius:100px;
+    padding:6px 16px; border-radius:100px; margin-bottom:14px;
+  }
+  .reviews .head h2{ font-size:clamp(1.6rem,4vw,2.4rem); font-weight:800; }
+  .reviews-track{
+    display:flex; gap:20px; width:max-content;
+    animation:reviews-ltr 45s linear infinite;
+  }
+  .review-tile{
+    flex:0 0 auto; width:340px; border-radius:16px; overflow:hidden; line-height:0;
+  }
+  /* placeholder tile — replaced by real review screenshots */
+  .review-tile.empty{
+    height:220px; display:flex; align-items:center; justify-content:center;
+    border:1.5px dashed rgba(212,205,255,0.35); color:var(--ash);
+    font-size:0.8rem; line-height:1.4; text-align:center; padding:20px;
+  }
+  @keyframes reviews-ltr{
+    from{ transform:translateX(-50%); }
+    to{ transform:translateX(0); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reviews-track{ animation:none; }
+    .approach-track{ scroll-behavior:auto; }
+  }
+
+  /* ---------- Socials + Contact ---------- */
+  .connect-section{ position:relative; background:var(--black); }
+  .socials-hotspots{ position:relative; width:100%; }
+  .hotspot{
+    position:absolute; top:49.3%; height:28.6%; border-radius:22%;
+    outline:2px solid transparent; transition:outline-color .15s ease, transform .15s ease;
+  }
+  .hotspot:hover, .hotspot:focus-visible{ outline-color:var(--yellow); transform:translateY(-2px); }
+  .hotspot.i1{ left:18.52%; width:9.48%; }
+  .hotspot.i2{ left:31.91%; width:9.48%; }
+  .hotspot.i3{ left:45.30%; width:9.48%; }
+  .hotspot.i4{ left:58.70%; width:9.48%; }
+  .hotspot.i5{ left:72.09%; width:9.48%; }
+
+  .contact-form-area{ padding:70px 24px 100px; background:var(--black); }
+  .contact-form-area .inner{ max-width:640px; margin:0 auto; }
+  .contact-form-area .eyebrow{
+    color:var(--yellow); font-size:0.75rem; font-weight:700; letter-spacing:0.08em;
+    text-transform:uppercase; margin-bottom:10px; display:block;
+  }
+  .contact-form-area h2{ font-size:clamp(1.7rem,4vw,2.4rem); font-weight:800; margin-bottom:14px; }
+  .contact-form-area > .inner > p{ color:var(--ash); margin-bottom:36px; font-size:0.98rem; max-width:52ch; }
+
+  form{ display:grid; gap:18px; }
+  .form-row{ display:grid; gap:18px; grid-template-columns:1fr 1fr; }
+  @media (max-width:600px){ .form-row{ grid-template-columns:1fr; } }
+  label{ display:block; font-size:0.8rem; font-weight:600; color:var(--purple-light); margin-bottom:8px; }
+  input, select, textarea{
+    width:100%; background:rgba(230,232,236,0.06); border:1.5px solid rgba(212,205,255,0.2);
+    border-radius:12px; padding:13px 16px; color:var(--white); font-family:'Poppins',sans-serif;
+    font-size:0.92rem; transition:border-color .2s ease, background .2s ease;
+  }
+  input::placeholder, textarea::placeholder{ color:rgba(230,232,236,0.4); }
+  input:focus, select:focus, textarea:focus{ outline:none; border-color:var(--purple); background:rgba(137,66,254,0.08); }
+  select{ appearance:none; -webkit-appearance:none; cursor:pointer;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23D4CDFF' stroke-width='1.6' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position:right 16px center; padding-right:40px;
+  }
+  select option{ background:var(--black); color:var(--white); }
+  textarea{ resize:vertical; min-height:100px; }
+  .submit-btn{
+    margin-top:8px; justify-self:start; background:var(--yellow); color:var(--black);
+    border:none; cursor:pointer; padding:15px 34px; font-family:'Poppins',sans-serif;
+    font-size:0.92rem; font-weight:700; border-radius:100px;
+    transition:transform .15s ease, background .2s ease;
+  }
+  .submit-btn:hover{ transform:translateY(-2px); background:var(--purple-light); }
+  .submit-btn:disabled{ opacity:0.6; cursor:not-allowed; transform:none; }
+
+  .thank-you{
+    display:none; text-align:center; padding:40px 20px;
+    border:1.5px solid var(--purple); border-radius:20px; background:rgba(137,66,254,0.08);
+  }
+  .thank-you.show{ display:block; }
+  .thank-you p{ color:var(--ash); font-size:1rem; line-height:1.7; max-width:52ch; margin:0 auto; }
+  .thank-you .sig{ display:block; margin-top:18px; color:var(--purple-light); font-weight:700; }
+  .form-error{ display:none; color:var(--yellow); font-size:0.85rem; margin-top:4px; }
+  .form-error.show{ display:block; }
+
+  footer.note{ text-align:center; padding:26px; color:rgba(230,232,236,0.4); font-size:0.72rem; }
+
+  /* ---------- Cursor follower (desktop / mouse only) ---------- */
+  .cursor-follower{ display:none; }
+  @media (hover:hover) and (pointer:fine){
+    .cursor-follower{
+      display:block; position:fixed; top:0; left:0; z-index:9999; pointer-events:none;
+      width:28px; height:28px; margin:-14px 0 0 -14px; border-radius:50%;
+      background:rgba(255,255,255,0.18); border:1.5px solid #ffffff;
+      box-shadow:0 0 0 1px rgba(0,0,0,0.25);
+      opacity:0; transition:opacity .2s ease, width .2s ease, height .2s ease, margin .2s ease;
+    }
+    .cursor-follower.visible{ opacity:1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor-follower" id="cursor-follower"></div>
+
+<nav class="mini-nav">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#approach">Approach</a>
+  <a href="projects.html">Projects</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#connect" class="connect">Connect With Me</a>
+</nav>
+
+<!-- 1. WELCOME -->
+<section class="placed" id="welcome">
+  <img src="IMAGES/WELCOME.png" alt="Welcome to my portfolio">
+</section>
+
+<!-- 2. HOME -->
+<section class="placed" id="home">
+  <img src="IMAGES/HOME.png" alt="brightworld editz — Taiwo Faith, Brand Designer and Strategist">
+</section>
+
+<!-- 3. ABOUT ME + TOOLS -->
+<section class="placed" id="about">
+  <img src="IMAGES/ABOUT%20ME.png" alt="About me — Timothy Taiwo Faith, brand identity, strategy and software skills">
+</section>
+
+<!-- 4. DESIGN APPROACH (swipe through 3 slides; tab pills on slide 1 are clickable) -->
+<section class="approach" id="approach">
+  <div class="approach-track" id="approach-track">
+    <div class="approach-slide">
+      <img src="IMAGES/DESIGN%20APPROACH%201%20-%203.png" alt="My approach — Understanding, Research and Concept">
+      <button class="tab-hotspot t1" data-slide="0" aria-label="Understanding"></button>
+      <button class="tab-hotspot t2" data-slide="0" aria-label="Research"></button>
+      <button class="tab-hotspot t3" data-slide="0" aria-label="Concept"></button>
+      <button class="tab-hotspot t4" data-slide="1" aria-label="Design"></button>
+      <button class="tab-hotspot t5" data-slide="2" aria-label="Refine"></button>
+    </div>
+    <div class="approach-slide">
+      <img src="IMAGES/DESIGN%20APPROACH%204.png" alt="Design — turning clarity into visibility">
+    </div>
+    <div class="approach-slide">
+      <img src="IMAGES/DESIGN%20APPROACH%205.png" alt="Refine — ending with less, revealing what's true">
+    </div>
+  </div>
+  <div class="approach-dots" id="approach-dots">
+    <button class="active" data-slide="0" aria-label="Understanding, Research, Concept"></button>
+    <button data-slide="1" aria-label="Design"></button>
+    <button data-slide="2" aria-label="Refine"></button>
+  </div>
+</section>
+
+<!-- 5. PROJECTS (entry point — awaiting your design; leads to projects.html) -->
+<section class="placeholder" id="projects">
+  <span class="tag">Projects</span>
+  <h2>Brand Identity &amp; Social Media Design</h2>
+  <p>Explore the brands I've worked with and open any project to see the full case study.</p>
+  <a href="projects.html" class="pill-btn">View Projects</a>
+</section>
+
+<!-- 6. REVIEWS (auto-scrolls left to right; empty tiles get replaced by your screenshots) -->
+<section class="reviews" id="reviews">
+  <div class="head">
+    <span class="tag">Reviews</span>
+    <h2>What clients say</h2>
+  </div>
+  <div class="reviews-track">
+    <!-- Set 1 -->
+    <div class="review-tile empty">Review screenshot 1</div>
+    <div class="review-tile empty">Review screenshot 2</div>
+    <div class="review-tile empty">Review screenshot 3</div>
+    <div class="review-tile empty">Review screenshot 4</div>
+    <div class="review-tile empty">Review screenshot 5</div>
+    <div class="review-tile empty">Review screenshot 6</div>
+    <!-- Set 2 (exact duplicate of Set 1 — needed for the seamless loop) -->
+    <div class="review-tile empty" aria-hidden="true">Review screenshot 1</div>
+    <div class="review-tile empty" aria-hidden="true">Review screenshot 2</div>
+    <div class="review-tile empty" aria-hidden="true">Review screenshot 3</div>
+    <div class="review-tile empty" aria-hidden="true">Review screenshot 4</div>
+    <div class="review-tile empty" aria-hidden="true">Review screenshot 5</div>
+    <div class="review-tile empty" aria-hidden="true">Review screenshot 6</div>
+  </div>
+</section>
+
+<!-- 7. SOCIALS + CONTACT ME (merged) -->
+<section class="connect-section" id="connect">
+  <div class="socials-hotspots">
+    <img src="IMAGES/SOCIALS.png" alt="Connect with me — WhatsApp, Instagram, LinkedIn, Behance, X">
+    <a class="hotspot i1" href="https://wa.me/2348134909708" target="_blank" rel="noopener" aria-label="Message on WhatsApp"></a>
+    <a class="hotspot i2" href="https://www.instagram.com/brightworldeditz" target="_blank" rel="noopener" aria-label="Instagram"></a>
+    <a class="hotspot i3" href="https://www.linkedin.com/in/timothy-taiwo-faith-950a9b39b" target="_blank" rel="noopener" aria-label="LinkedIn"></a>
+    <a class="hotspot i4" href="https://www.behance.net/taiwofaith3" target="_blank" rel="noopener" aria-label="Behance"></a>
+    <a class="hotspot i5" href="https://x.com/Brightworld2824" target="_blank" rel="noopener" aria-label="X (Twitter)"></a>
+  </div>
+
+  <div class="contact-form-area">
+    <div class="inner">
+      <span class="eyebrow">Start a project</span>
+      <h2>Tell me about your project</h2>
+      <p>Fill this out with as much detail as you can — the more I know upfront, the faster I can get back to you with next steps.</p>
+
+      <form id="inquiry-form">
+        <input type="hidden" name="access_key" value="2268d071-3b19-4d81-bf60-15a4e082214c">
+        <input type="hidden" name="subject" value="New project inquiry — brightworld editz">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-row">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@email.com" required>
+          </div>
+        </div>
+
+        <div>
+          <label for="heard">How did you hear about me?</label>
+          <select id="heard" name="how_did_you_hear">
+            <option value="">Select an option</option>
+            <option value="Instagram">Instagram</option>
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="Behance">Behance</option>
+            <option value="X (Twitter)">X (Twitter)</option>
+            <option value="Referral">Referral from someone</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="scope">Scope of service</label>
+          <select id="scope" name="scope_of_service" required>
+            <option value="">Select an option</option>
+            <option value="Branding / Brand Identity">Branding / Brand Identity</option>
+            <option value="Social Media Design">Social Media Design</option>
+            <option value="Both">Both</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="description">Brief description of your project</label>
+          <textarea id="description" name="project_description" placeholder="What are you working on?" required></textarea>
+        </div>
+
+        <div>
+          <label for="expectations">Your expectations</label>
+          <textarea id="expectations" name="expectations" placeholder="What does a great result look like to you?"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label for="deadline">Project deadline</label>
+            <input type="date" id="deadline" name="deadline">
+          </div>
+          <div>
+            <label for="budget">Budget range</label>
+            <select id="budget" name="budget_range">
+              <option value="">Select a range</option>
+              <option value="Under $100">Under $100</option>
+              <option value="$100 – $500">$100 – $500</option>
+              <option value="$500 – $1000">$500 – $1000</option>
+              <option value="$1000 – $2000">$1000 – $2000</option>
+              <option value="$2000+">$2000+</option>
+              <option value="Not sure yet">Not sure yet</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">Send project details</button>
+        <p class="form-error" id="form-error">Something went wrong — please try again, or reach me directly via the icons above.</p>
+      </form>
+
+      <div class="thank-you" id="thank-you">
+        <p>Thank you for reaching out! I've received your project details and I'm excited about the possibility of scaling your brand away from the competition. I'll review everything and get back to you within 24–48 hours — grab a coffee while you wait.
+        <span class="sig">— brightworld editz</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. LAST PAGE (fixed, always last) -->
+<section class="placed" id="last">
+  <img src="IMAGES/LAST%20PAGE.png" alt="Let's work together — thank you for viewing">
+</section>
+
+<footer class="note">© <span id="year"></span> brightworld editz. All rights reserved.</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---- Design Approach: tabs + dots scroll the slides ---- */
+  (function(){
+    const track = document.getElementById('approach-track');
+    const dots = document.querySelectorAll('#approach-dots button');
+    function goTo(i){ track.scrollTo({ left: track.clientWidth * i, behavior: 'smooth' }); }
+    document.querySelectorAll('[data-slide]').forEach(function(el){
+      el.addEventListener('click', function(){ goTo(Number(el.dataset.slide)); });
+    });
+    track.addEventListener('scroll', function(){
+      const i = Math.round(track.scrollLeft / track.clientWidth);
+      dots.forEach(function(d, n){ d.classList.toggle('active', n === i); });
+    }, { passive: true });
+  })();
+
+  /* ---- Cursor follower (mouse devices only) ---- */
+  (function(){
+    if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    const el = document.getElementById('cursor-follower');
+    let x = 0, y = 0, tx = 0, ty = 0;
+    window.addEventListener('mousemove', function(e){
+      tx = e.clientX; ty = e.clientY; el.classList.add('visible');
+    });
+    document.addEventListener('mouseleave', function(){ el.classList.remove('visible'); });
+    (function loop(){
+      x += (tx - x) * 0.15; y += (ty - y) * 0.15;
+      el.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+      requestAnimationFrame(loop);
+    })();
+  })();
+
+  /* ---- Inquiry form ---- */
+  const form = document.getElementById('inquiry-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const thankYou = document.getElementById('thank-you');
+  const formError = document.getElementById('form-error');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    formError.classList.remove('show');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      });
+      const result = await res.json();
+      if (result.success) {
+        form.style.display = 'none';
+        thankYou.classList.add('show');
+      } else {
+        throw new Error(result.message || 'Submission failed');
+      }
+    } catch (err) {
+      formError.classList.add('show');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send project details';
+    }
+  });
+</script>
+
+</body>
+</html>
