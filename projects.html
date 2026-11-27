@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — brightworld editz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#212529; --ash:#E6E8EC; --purple:#8942FE; --purple-light:#D4CDFF;
+    --yellow:#FED728; --white:#ffffff; --max:1150px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black); color:var(--white);
+    font-family:'Poppins',sans-serif; line-height:1.6;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  ::selection{ background:var(--yellow); color:var(--black); }
+  a{ color:inherit; }
+  img{ display:block; width:100%; height:auto; }
+
+  .mini-nav{
+    position:fixed; top:20px; left:50%; transform:translateX(-50%);
+    z-index:100; display:flex; gap:6px; align-items:center;
+    background:rgba(33,37,41,0.85); backdrop-filter:blur(10px);
+    border:1px solid rgba(212,205,255,0.25); border-radius:100px;
+    padding:8px; box-shadow:0 8px 24px rgba(0,0,0,0.35);
+  }
+  .mini-nav a{
+    text-decoration:none; font-size:0.72rem; font-weight:600;
+    color:var(--ash); padding:8px 14px; border-radius:100px;
+    transition:background .2s ease, color .2s ease; white-space:nowrap;
+  }
+  .mini-nav a:hover{ background:var(--purple); color:var(--white); }
+  .mini-nav a.connect{ background:var(--yellow); color:var(--black); font-weight:700; }
+  .mini-nav a.connect:hover{ background:var(--purple-light); }
+  @media (max-width:700px){
+    .mini-nav{ max-width:92vw; overflow-x:auto; justify-content:flex-start; }
+  }
+
+  .banner{ display:block; width:100%; line-height:0; }
+
+  .grid-wrap{ max-width:var(--max); margin:0 auto; padding:24px; }
+  .grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  @media (max-width:700px){ .grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Project cards ---------- */
+  .card{
+    position:relative; display:block; border-radius:18px; overflow:hidden; line-height:0;
+    transition:transform .25s ease;
+  }
+  .card:hover{ transform:translateY(-4px); }
+  .card:focus-visible{ outline:2px solid var(--yellow); outline-offset:3px; }
+
+  /* Desktop hover-reveal of the "View Case Study" button.
+     Only active on cards marked .has-clean, which hold two images:
+     .clean (no button) and .with-btn (button included).
+     Touch devices always show .with-btn. */
+  .card .with-btn{ display:block; }
+  .card.has-clean .clean{ display:block; }
+  .card.has-clean .with-btn{ position:absolute; inset:0; opacity:1; transition:opacity .25s ease; }
+  @media (hover:hover) and (pointer:fine){
+    .card.has-clean .with-btn{ opacity:0; }
+    .card.has-clean:hover .with-btn,
+    .card.has-clean:focus-visible .with-btn{ opacity:1; }
+  }
+
+  .back-row{ text-align:center; padding:50px 24px 70px; }
+  .pill-btn{
+    display:inline-block; text-decoration:none; background:var(--yellow); color:var(--black);
+    font-weight:700; font-size:0.9rem; padding:14px 30px; border-radius:100px; margin:6px;
+    transition:transform .15s ease, background .2s ease;
+  }
+  .pill-btn:hover{ transform:translateY(-2px); background:var(--purple-light); }
+
+  /* ---------- Cursor follower (desktop / mouse only) ---------- */
+  .cursor-follower{ display:none; }
+  @media (hover:hover) and (pointer:fine){
+    .cursor-follower{
+      display:block; position:fixed; top:0; left:0; z-index:9999; pointer-events:none;
+      width:28px; height:28px; margin:-14px 0 0 -14px; border-radius:50%;
+      background:rgba(255,255,255,0.18); border:1.5px solid #ffffff;
+      box-shadow:0 0 0 1px rgba(0,0,0,0.25);
+      opacity:0; transition:opacity .2s ease;
+    }
+    .cursor-follower.visible{ opacity:1; }
+  }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } .card{ transition:none; } }
+</style>
+</head>
+<body>
+
+<div class="cursor-follower" id="cursor-follower"></div>
+
+<nav class="mini-nav">
+  <a href="index.html">← Back</a>
+  <a href="#brand-identity">Brand Identity</a>
+  <a href="#social-media">Social Media</a>
+  <a href="index.html#connect" class="connect">Connect With Me</a>
+</nav>
+
+<!-- ===== BRAND IDENTITY PROJECTS ===== -->
+<section id="brand-identity">
+  <div class="banner"><img src="IMAGES/BIP.png" alt="Brand Identity Projects"></div>
+  <div class="grid-wrap">
+    <div class="grid">
+      <!-- Add new BIP cards below this line (copy one block, change the image + link) -->
+      <a class="card" href="#" aria-label="View case study — VoTal9ja">
+        <img class="with-btn" src="IMAGES/BIP_1.png" alt="VoTal9ja brand identity — view case study">
+      </a>
+      <a class="card" href="#" aria-label="View case study — Neurova">
+        <img class="with-btn" src="IMAGES/BIP_2.png" alt="Neurova brand identity — view case study">
+      </a>
+      <a class="card" href="#" aria-label="View case study — Corelogix">
+        <img class="with-btn" src="IMAGES/BIP_3.png" alt="Corelogix logo breakdown — view case study">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOCIAL MEDIA DESIGN PROJECTS ===== -->
+<section id="social-media">
+  <div class="banner"><img src="IMAGES/SMDP.png" alt="Social Media Design Projects"></div>
+  <div class="grid-wrap">
+    <div class="grid">
+      <!-- Add new SMDP cards below this line (copy one block, change the image + link) -->
+      <a class="card" href="#" aria-label="View case study — Empire Team">
+        <img class="with-btn" src="IMAGES/SMDP_1.png" alt="Empire Team social media design — view case study">
+      </a>
+      <a class="card" href="#" aria-label="View full design — Kiki Kloset">
+        <img class="with-btn" src="IMAGES/SMDP_2.png" alt="Kiki Kloset social media design — view full design">
+      </a>
+      <a class="card" href="#" aria-label="View full design — AMA session">
+        <img class="with-btn" src="IMAGES/SMDP_3.png" alt="AMA session social media design — view full design">
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="back-row">
+  <a href="index.html" class="pill-btn">← Back to portfolio</a>
+  <a href="index.html#connect" class="pill-btn">Connect With Me</a>
+</div>
+
+<script>
+  /* Cards whose case study page isn't built yet (href="#") do nothing when clicked */
+  document.querySelectorAll('.card').forEach(function(c){
+    c.addEventListener('click', function(e){
+      if (c.getAttribute('href') === '#') e.preventDefault();
+    });
+  });
+
+  /* Cursor follower (mouse devices only) */
+  (function(){
+    if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    const el = document.getElementById('cursor-follower');
+    let x = 0, y = 0, tx = 0, ty = 0;
+    window.addEventListener('mousemove', function(e){
+      tx = e.clientX; ty = e.clientY; el.classList.add('visible');
+    });
+    document.addEventListener('mouseleave', function(){ el.classList.remove('visible'); });
+    (function loop(){
+      x += (tx - x) * 0.15; y += (ty - y) * 0.15;
+      el.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+      requestAnimationFrame(loop);
+    })();
+  })();
+</script>
+
+</body>
+</html>
